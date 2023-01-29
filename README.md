@@ -1,7 +1,7 @@
 Hi 👋 My name is Magnus Fröbom
 ==============================
 
-Software Developer
+Self-taught Software Engineer
 ------------------
 
 Been tinkering with computers since the mid 90s. Hardware and software. Challenges makes my brain tick!
