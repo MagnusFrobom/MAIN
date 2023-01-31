@@ -13,10 +13,10 @@ const db = knex({
   // Enter your database information here
   client: 'pg', // PostGres  
   connection: {
-    host : '127.0.0.1',
-    user : 'magnus',
+    host: 'mf-brain.cldojmuvzafb.us-east-1.rds.amazonaws.com',
+    user : 'mf-brain',
     password : '',
-    database : 'brain'
+    database : 'mf_brain_db'
   }
 });
 
@@ -38,6 +38,6 @@ app.get('/profile/:id', (req, res) => {profile.handleProfileGET(req, res, db, bc
 app.put('/image', (req, res) => { image.handleImage(req ,res)})
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log('app is running on port 3000');
 })
