@@ -14,12 +14,15 @@ const db = knex({
   client: 'pg', // PostGres  
   connection: {
     host: 'mf-brain.cldojmuvzafb.us-east-1.rds.amazonaws.com',
-    user : 'mf-brain',
+    user : 'magnusfrobom',
     password : '',
     database : 'mf_brain_db'
   }
 });
 
+db.select('*').from('users').then(data => {
+  console.log(data);
+});
 
 const app = express();
 
