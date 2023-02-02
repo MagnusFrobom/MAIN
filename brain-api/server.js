@@ -8,14 +8,15 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
+const DB_KEY = process.env.DB_KEY
 
 const db = knex({
   // Enter your database information here
-  client: 'pg', // PostGres  
+  client: 'pg', // PostGres
   connection: {
     host: 'mf-brain.cldojmuvzafb.us-east-1.rds.amazonaws.com',
     user : 'magnusfrobom',
-    password : '',
+    password : DB_KEY,
     database : 'mf_brain_db'
   }
 });

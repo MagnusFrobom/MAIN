@@ -1,8 +1,22 @@
-const Clarifai = require('clarifai');
+const {ClarifaiStub, grpc} = require("clarifai-nodejs-hrpc");
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+const stub = ClarifaiStub.grpc();
+
+const metadata = new grpc.metadata();
+metadata.set("authorization", API_KEY);
+
+/* const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
-    apiKey: 'cb3ca50bc5324910a1b792078d3ee4b5'
-});
+    apiKey: ''
+}); */
+
+stub.PostModelOutputs(
+        {
+            model_id: ""
+        }
+)
 
 const handleApiCall = (req, res) => {
     app.models
