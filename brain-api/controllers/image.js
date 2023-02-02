@@ -6,11 +6,13 @@ const stub = ClarifaiStub.grpc();
 const metadata = new grpc.metadata();
 metadata.set("authorization", API_KEY);
 
-/* const Clarifai = require('clarifai');
-
+const Clarifai = require('clarifai');
+console.log(Clarifai)
+/* 
 const app = new Clarifai.App({
     apiKey: ''
-}); */
+}); 
+ */
 const handleApiCall = (req, res) => {
     stub.PostModelOutputs(
         {
@@ -34,6 +36,7 @@ const handleApiCall = (req, res) => {
             for (const c of response.outputs[0].data.concepts) {
                 console.log(c.name + ": " + c.value);
             }
+            res.json(response)
         }
 );
 
