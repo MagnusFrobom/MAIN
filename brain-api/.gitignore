@@ -21,6 +21,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-MAIN\brain-api\DB_KEY.env
-MAIN\brain-api\DB_URL.env
-MAIN\brain-api\API_KEY.env
+DB_KEY.env
+DB_URL.env
+API_KEY.env
+
+DB_KEY.env/
+DB_URL.env/
+API_KEY.env/

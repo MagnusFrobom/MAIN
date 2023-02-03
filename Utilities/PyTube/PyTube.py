@@ -1,5 +1,6 @@
+import PY_URL
 from pytube import Playlist
-p = Playlist('https://www.youtube.com/watch?v=_3f_t0qHPmo&list=PLMUVYRN636-Qh1Nb0HHa39nCSAjsgNZYa')
+p = Playlist(PY_URL)
 
 print(f'Downloading: {p.title}')
 
