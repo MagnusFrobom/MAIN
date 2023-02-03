@@ -1,4 +1,4 @@
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-hrpc");
+const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const stub = ClarifaiStub.grpc();
