@@ -14,7 +14,7 @@ const db = knex({
   // Enter your database information here
   client: 'pg', // PostGres
   connection: {
-    host: 'mf-brain.cldojmuvzafb.us-east-1.rds.amazonaws.com',
+    host: ,
     user : 'magnusfrobom',
     password : DB_KEY,
     database : 'mf_brain_db'
@@ -45,3 +45,6 @@ app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 app.listen(3001, () => {
   console.log('app is running on port 3000');
 })
+
+
+console.log(process.env)
