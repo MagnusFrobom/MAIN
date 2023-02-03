@@ -9,12 +9,12 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 const DB_KEY = process.env.DB_KEY
-
+const DB_URL = process.env.DB_URL
 const db = knex({
   // Enter your database information here
   client: 'pg', // PostGres
   connection: {
-    host: ,
+    host: DB_URL,
     user : 'magnusfrobom',
     password : DB_KEY,
     database : 'mf_brain_db'
