@@ -11,21 +11,21 @@ class Register extends React.Component {
   }
 
   onNameChange = (event) => {
-    this.setState({name: event.target.value})
+    this.setState({ name: event.target.value })
   }
 
   onEmailChange = (event) => {
-    this.setState({email: event.target.value})
+    this.setState({ email: event.target.value })
   }
 
   onPasswordChange = (event) => {
-    this.setState({password: event.target.value})
+    this.setState({ password: event.target.value })
   }
 
   onSubmitSignIn = () => {
     fetch('http://localhost:3000/register', {
       method: 'post',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password,
@@ -34,7 +34,7 @@ class Register extends React.Component {
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
+        if (user.id) {
           this.props.loadUser(user)
           this.props.onRouteChange('home');
         }
