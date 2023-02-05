@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Tahoma", Courier, monospace;
+  font-family: "Arial", Courier, monospace;
   background: rgb(51, 107, 153);
   background: linear-gradient(270deg, rgba(51, 107, 153, 1) 0%, rgba(123, 31, 162, 1) 84%);
   /* 
