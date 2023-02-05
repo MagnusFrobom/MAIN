@@ -19,9 +19,3 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 }
 
 export default Navigation;
-
-/* 
-'flex' */
-
-/* 
-'inline-block' */
