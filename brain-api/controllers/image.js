@@ -3,8 +3,8 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const stub = ClarifaiStub.grpc();
 
-const metadata = new grpc.metadata();
-metadata.set("authorization", API_KEY);
+const metadata = grpc.metadata();
+metadata.set("authorization", 'asdsfgasd');
 
 const Clarifai = require('clarifai');
 console.log(Clarifai)
