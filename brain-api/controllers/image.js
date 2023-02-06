@@ -1,59 +1,25 @@
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
-const API_KEY = process.env.REACT_APP_API_KEY;
-
-const stub = ClarifaiStub.grpc();
-
-const metadata = grpc.metadata();
-metadata.set("authorization", 'asdsfgasd');
-
 const Clarifai = require('clarifai');
-console.log(Clarifai)
-/* 
+
 const app = new Clarifai.App({
-    apiKey: ''
-}); 
- */
+    apiKey: 'cb3ca50bc5324910a1b792078d3ee4b5'
+});
+
+
 const handleApiCall = (req, res) => {
-    stub.PostModelOutputs(
-        {
-            // This is the model ID of a publicly available General model. You may use any other public or custom model ID.
-            model_id: "aaa03c23b3724a16a56b629203edc62c",
-            inputs: [{ data: { image: { url: req.body.input } } }]
-        },
-        metadata,
-        (err, response) => {
-            if (err) {
-                console.log("Error: " + err);
-                return;
-            }
 
-            if (response.status.code !== 10000) {
-                console.log("Received failed status: " + response.status.description + "\n" + response.status.details);
-                return;
-            }
-
-            console.log("Predicted concepts, with confidence values:")
-            for (const c of response.outputs[0].data.concepts) {
-                console.log(c.name + ": " + c.value);
-            }
-            res.json(response)
-        }
-);
-
-}
-
-/* 
-stub.PostModelOutputs(
-        {
-            model_id: ""
-        }
-) */
-
-/* const handleApiCall = (req, res) => {
     app.models
-        .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
-
-} */
+        .predict(
+            {
+                id: 'face-detection',
+                name: 'face-detection',
+                version: '6dc7e46bc9124c5c8824be4822abe105',
+                type: 'visual-detector',
+            }, req.body.input)
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => res.status(400).json('unable to work with API'))
+}
 
 const handleImage = (req, res, db) => {
     const { id } = req.body;
@@ -61,11 +27,14 @@ const handleImage = (req, res, db) => {
         .increment('entries', 1)
         .returning('entries')
         .then(entries => {
+            // If you are using knex.js version 1.0.0 or higher this now returns an array of objects. Therefore, the code goes from:
+            // entries[0] --> this used to return the entries
+            // TO
+            // entries[0].entries --> this now returns the entries
             res.json(entries[0].entries);
         })
         .catch(err => res.status(400).json('unable to get entries'))
 }
-
 
 module.exports = {
     handleImage,
