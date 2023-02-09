@@ -88,7 +88,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-    fetch('https://mf-brain.herokuapp.com/imageurl', {
+    fetch('https://localhost:3002', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -115,7 +115,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('https://mf-brain.herokuapp.com/image', {
+          fetch('https://localhost/image:3002', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
