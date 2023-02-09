@@ -28,3 +28,5 @@ API_KEY.env
 DB_KEY.env/
 DB_URL.env/
 API_KEY.env/
+
+.env
