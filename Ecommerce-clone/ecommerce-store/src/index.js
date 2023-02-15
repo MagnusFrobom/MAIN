@@ -1,4 +1,4 @@
-
+import { useStateValue } from "./StateProvider";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
