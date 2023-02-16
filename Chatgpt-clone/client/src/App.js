@@ -1,11 +1,16 @@
 import './App.css';
 import './normal.css';
+import { useState } from 'react';
 
 function App() {
 
+    const [input, setInput] = useState("");
+    const [chatLog, setChatLog] = useState([]);
+
   async function handleSubmit(e){
       e.preventDefault();
-      console.log('submit')
+    setChatLog([...chatLog, { user: "me", message: `$(input)`} ])
+      setInput("");
   }
 
   return (
@@ -79,7 +84,10 @@ function App() {
         </form>
         <input
         rows="1"
-        className="chat-input-text-area"></input>
+        value={input}
+        onChange={() => setInput(input) = (e.target.value)}
+        className="chat-input-text-area">
+        </input>
         </div>
       </section>
     </div>
