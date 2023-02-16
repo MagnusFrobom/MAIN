@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+}
+
+.left_sidemenu {
+  width: 240px;
 }
 
 .App-logo {
