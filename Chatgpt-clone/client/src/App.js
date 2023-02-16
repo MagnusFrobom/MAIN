@@ -85,7 +85,9 @@ function App() {
         <input
         rows="1"
         value={input}
-        onChange={() => setInput(input) = (e.target.value)}
+/* 
+        onChange={(e) => setInput(e.target.value)}
+         */
         className="chat-input-text-area">
         </input>
         </div>
