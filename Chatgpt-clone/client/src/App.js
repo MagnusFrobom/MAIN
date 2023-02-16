@@ -12,9 +12,8 @@ function App() {
       <section className="chatbox">
         <div className="chatbox-input">
         <textarea
-        className="chat-input-text-area"
-        placeholder="Message here"></textarea>
-
+        rows="1"
+        className="chat-input-text-area"></textarea>
         </div>
       </section>
     </div>
