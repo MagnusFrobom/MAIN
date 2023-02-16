@@ -1,16 +1,17 @@
 .App {
   text-align: center;
   display: flex;
-  background-color: #282c34;
+  background: rgb(23, 50, 71);
+  background: linear-gradient(270deg, rgba(23, 50, 71, 1) 0%, rgba(39, 8, 54, 1) 100%);;
   color: white;
   position:absolute;
-  top: o;bottom: 0;right: 0;left: 0;
+  top:o;bottom:0;right:0;left:0;
 }
 
 .left_sidemenu {
   width: 240px;
   border:1px solid white;
-  background-color: rgb(42, 8, 54);
+  background-color: #270836;
 }
 
 .chatbox {
