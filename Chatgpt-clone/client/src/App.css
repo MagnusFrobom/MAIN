@@ -1,17 +1,18 @@
 .App {
   text-align: center;
   display: flex;
-  background: rgb(23, 50, 71);
+  background: #173247;
   background: linear-gradient(270deg, rgba(23, 50, 71, 1) 0%, rgba(39, 8, 54, 1) 100%);;
   color: white;
   position:absolute;
-  top:o;bottom:0;right:0;left:0;
+  bottom:0;top:0;left:0;right:0;
 }
 
 .left_sidemenu {
   width: 240px;
   border:1px solid white;
-  background-color: #270836;
+  background: rgb(39, 8, 54);
+  background: linear-gradient(270deg, rgba(39, 8, 54, 1) 0%, rgba(23, 50, 71, 1) 100%);
 }
 
 .chatbox {
@@ -33,10 +34,10 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
+  display: flex;/* 
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
