@@ -34,6 +34,7 @@
   flex: 1;
   background: rgb(47, 11, 65);
   background: linear-gradient(90deg, rgba(47, 11, 65, 1) 0%, rgba(23, 50, 71, 1) 100%);
+  position: relative;
 }
 
 .App-logo {
@@ -48,37 +49,39 @@
 }
 
 .chat-input-holder {
-  padding: 12px;
+  padding: 24px;
   position: absolute;
   bottom: 0;
   left: 0;right: 0;
-  top:0;
+
 
 }
 
 .chat-input-text-area {
+  position: relative;
+  bottom: 0;
   background-color: rgba(217, 214, 220, 0.8);
-  width: 100%;
+  width: 90%;
   border-radius: 5px;
-  border: 5px;
+  border: 10px;
   border-color: white;
-  color: white;
-  font-size: 1.25em;
+  color: rgb(0, 0, 0);
+  font-size: 1.20em;
   margin: 12px;
   outline: none;
   box-shadow: 0 0 8px 0 rgba(rgb(56, 16, 62), rgb(37, 22, 99), rgb(72, 72, 95), alpha);
 }
-
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;/* 
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
