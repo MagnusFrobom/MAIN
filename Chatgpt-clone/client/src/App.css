@@ -71,7 +71,44 @@
   outline: none;
   box-shadow: 0 0 8px 0 rgba(rgb(56, 16, 62), rgb(37, 22, 99), rgb(72, 72, 95), alpha);
 }
-/* 
+
+.chat-log {
+  padding: 24px;
+  text-align: left;
+}
+
+.avatar {
+  background: white;
+  color: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.chat-message.chatgpt {
+  background-color: rgba(130, 124, 136, 0.8);
+  border-radius: 4px 12px 0px 0px;
+}
+
+.chat-message-center {
+  display: flex;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  
+}
+
+.message {
+  display: flex;/* 
+  padding-left:  40px;
+  padding-right: 40px; */
+
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -81,7 +118,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-} */
+}
 
 .App-link {
   color: #61dafb;
