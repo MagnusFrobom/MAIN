@@ -22,9 +22,9 @@ function App() {
             </div>
             </div>  
 
-          <div className="chat-message chatgpt">
+          <div className="chat-message aibot">
             <div className="chat-message-center">
-              <div className="avatar">
+              <div className="avatar aibot">
 
               </div>
               <div className="message">
