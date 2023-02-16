@@ -1,10 +1,21 @@
 .App {
   text-align: center;
   display: flex;
+  background-color: #282c34;
+  color: white;
+  position:absolute;
+  top: o;bottom: 0;right: 0;left: 0;
 }
 
 .left_sidemenu {
   width: 240px;
+  border:1px solid white;
+  background-color: rgb(42, 8, 54);
+}
+
+.chatbox {
+  flex: 1;
+  border: 1px solid white;
 }
 
 .App-logo {
