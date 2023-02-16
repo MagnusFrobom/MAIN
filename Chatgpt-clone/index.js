@@ -13,7 +13,7 @@ const openai = new OpenAIApi(configuration);
 // Create a simple express api that calls the function above
 
 const app = express()
-const port = 3001
+const port = 3080
 
 app.post('/', async (req, res) => {
     const response = await openai.createCompletion({
