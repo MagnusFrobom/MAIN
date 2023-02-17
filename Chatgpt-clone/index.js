@@ -16,15 +16,19 @@ const app = express()
 const port = 3080
 
 app.post('/', async (req, res) => {
-    const response = await openai.createCompletion({
+    const { message } = req.body;
+
+/*     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: "say this is a test",
         max_tokens: 7,
         temperature: 0,
     });
+*/
     console.log(response.data.choices[0].text)
-    res.json({
-        data: response.data
+    res.json({/* 
+        data: response.data */
+        data: message,
     })
 
 });
