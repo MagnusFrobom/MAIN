@@ -44,9 +44,9 @@ function App() {
         {chatLog.map((message, index) => (
           <ChatMessage key={index} message={message} />
         ))}
-          <div className="chat-message aibot">
+          <div className="chat-message chatgpt">
             <div className="chat-message-center">
-              <div className="avatar aibot">
+              <div className="avatar chatgpt">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <circle cx={50} cy={50} r={50} fill="#4C4C4C" />
                   <rect x={25} y={25} width={50} height={50} rx={5} ry={5} fill="#F8F8F8" />
