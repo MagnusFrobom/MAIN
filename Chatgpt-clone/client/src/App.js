@@ -18,15 +18,15 @@ function App() {
     setChatLog([...chatLog, { user: "me", message: `${input}`
     } ])
       setInput("");
-      const response = await fetch("http://localhost:3000/", {
+      const response = await fetch("http://localhost:3080/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          message: chatLog.map((message) => message.message).join("")
-        })
-      });
+            message: chatLog.map((message) => message.message).join("")
+          })
+        });
       const data = await response.json();
       console.log(data);
   }
