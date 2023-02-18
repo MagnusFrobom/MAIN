@@ -13,18 +13,25 @@ function App() {
     message: "Use me"
   }]);
 
+function clearChat(){
+  setChatLog([]);
+}
+
   async function handleSubmit(e){
       e.preventDefault();
-    setChatLog([...chatLog, { user: "me", message: `${input}`
+    await setChatLog([...chatLog, { user: "me", message: `${input}`
     } ])
-      setInput("");
+    await  setInput("");
+
+      const messages = chatLog.map((message) =>
+      message.message).join("\n")
       const response = await fetch("http://localhost:3080/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            message: chatLog.map((message) => message.message).join("")
+            message: messages
           })
         });
       const data = await response.json();
@@ -35,7 +42,8 @@ function App() {
   return (
     <div className="App">
       <aside className="left-sidemenu">
-        <div className="side-menu-button">
+        <div className="side-menu-button" onClick={clearChat
+        }>
         <span>+</span>  New chat
         </div> 
       </aside>
@@ -50,7 +58,6 @@ function App() {
                 
               </div>
               <div className="message">
-                I'm your AI!
               </div>
             </div>
           </div>  
@@ -58,15 +65,14 @@ function App() {
         </div>
 
         <div className="chat-input-holder">
-        <form onSubmit={handleSubmit}>
-
-        <input
-        rows="1"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="chat-input-text-area">
-        </input>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <input
+              rows="1"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="chat-input-text-area">
+            </input>
+          </form>
         </div>
       </section>
     </div>
@@ -100,7 +106,7 @@ const ChatMessage = ({ message }) => {
           }
           </div>
         <div className="message">
-          Hi there!
+
         </div>
       </div>
       </div>
