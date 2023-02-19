@@ -19,11 +19,11 @@ function clearChat(){
 
   async function handleSubmit(e){
       e.preventDefault();
-    await setChatLog([...chatLog, { user: "me", message: `${input}`
-    } ])
-    await  setInput("");
+    let chatLogNew = [...chatLog, { user: "me", message: `${input}`
+    } ]
+    setInput("");
 
-      const messages = chatLog.map((message) =>
+      const messages = chatLogNew.map((message) =>
       message.message).join("\n")
       const response = await fetch("http://localhost:3080/", {
         method: "POST",
@@ -35,35 +35,22 @@ function clearChat(){
           })
         });
       const data = await response.json();
-      setChatLog([...chatLog, { user: "gpt", message: `${data.message}`} ])
-      console.log(data.message);
+      setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}`} ])
   }
 
   return (
     <div className="App">
       <aside className="left-sidemenu">
-        <div className="side-menu-button" onClick={clearChat
-        }>
+        <div className="side-menu-button" onClick={clearChat}>
         <span>+</span>  New chat
         </div> 
       </aside>
       <section className="chatbox">
         <div className="chat-log">
         {chatLog.map((message, index) => (
-          <ChatMessage key={index} message={message} />
+          <ChatMessage key={index} message={message}/>
         ))}
-          <div className="chat-message chatgpt">
-            <div className="chat-message-center">
-              <div className="avatar chatgpt">
-                
-              </div>
-              <div className="message">
-              </div>
-            </div>
-          </div>  
-
-        </div>
-
+      </div>
         <div className="chat-input-holder">
           <form onSubmit={handleSubmit}>
             <input

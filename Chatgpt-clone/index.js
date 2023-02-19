@@ -17,10 +17,6 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-/* 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
- */
 const port = 3080
 
 app.post('/', async (req, res) => {
@@ -33,7 +29,6 @@ app.post('/', async (req, res) => {
         temperature: 0.5,
     });
  
-    console.log()
     res.json({
         message: response.data.choices[0].text,
     })
