@@ -13,74 +13,53 @@ function App() {
     message: "Use me"
   }]);
 
+function clearChat(){
+  setChatLog([]);
+}
+
   async function handleSubmit(e){
       e.preventDefault();
-    setChatLog([...chatLog, { user: "me", message: `${input}`
-    } ])
-      setInput("");
-      const response = await fetch("http://localhost:3000/", {
+    let chatLogNew = [...chatLog, { user: "me", message: `${input}`
+    } ]
+    setInput("");
+
+      const messages = chatLogNew.map((message) =>
+      message.message).join("\n")
+      const response = await fetch("http://localhost:3080/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          message: chatLog.map((message) => message.message).join("")
-        })
-      });
+            message: messages
+          })
+        });
       const data = await response.json();
-      console.log(data);
+      setChatLog([...chatLogNew, { user: "gpt", message: `${data.message}`} ])
   }
 
   return (
     <div className="App">
       <aside className="left-sidemenu">
-        <div className="side-menu-button">
-        <span>+</span>  New chat
+        <div className="side-menu-button" onClick={clearChat}>
+        <span>+</span>  NEW CHAT
         </div> 
       </aside>
       <section className="chatbox">
         <div className="chat-log">
         {chatLog.map((message, index) => (
-          <ChatMessage key={index} message={message} />
+          <ChatMessage key={index} message={message}/>
         ))}
-          <div className="chat-message aibot">
-            <div className="chat-message-center">
-              <div className="avatar aibot">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx={50} cy={50} r={50} fill="#4C4C4C" />
-                  <rect x={25} y={25} width={50} height={50} rx={5} ry={5} fill="#F8F8F8" />
-                  <path fill="#F8F8F8" d="m50 10 40 70H10z" />
-                  <text
-                    x={50}
-                    y={50}
-                    textAnchor="middle"
-                    alignmentBaseline="middle"
-                    fontSize={45}
-                    fontWeight="bold"
-                    fontFamily="sans-serif"
-                  >
-                    {"AI"}
-                  </text>
-                </svg>
-              </div>
-              <div className="message">
-                I'm your AI!
-              </div>
-            </div>
-          </div>  
-
-        </div>
-
+      </div>
         <div className="chat-input-holder">
-        <form onSubmit={handleSubmit}>
-
-        </form>
-        <input
-        rows="1"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="chat-input-text-area">
-        </input>
+          <form onSubmit={handleSubmit}>
+            <input
+              rows="1"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="chat-input-text-area">
+            </input>
+          </form>
         </div>
       </section>
     </div>
@@ -113,9 +92,8 @@ const ChatMessage = ({ message }) => {
           </svg>
           }
           </div>
-
         <div className="message">
-          Hi there!
+
         </div>
       </div>
       </div>
@@ -124,3 +102,23 @@ const ChatMessage = ({ message }) => {
 
 
 export default App;
+
+
+// AI SVG LOGO
+/* 
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx={50} cy={50} r={50} fill="#4C4C4C" />
+  <rect x={25} y={25} width={50} height={50} rx={5} ry={5} fill="#F8F8F8" />
+  <path fill="#F8F8F8" d="m50 10 40 70H10z" />
+  <text
+    x={50}
+    y={50}
+    textAnchor="middle"
+    alignmentBaseline="middle"
+    fontSize={45}
+    fontWeight="bold"
+    fontFamily="sans-serif"
+  >
+    {"AI"}
+  </text>
+</svg> */
