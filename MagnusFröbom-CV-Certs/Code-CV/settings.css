@@ -1,0 +1,6 @@
+@page {
+    margin: 0.5in;
+    size: letter;
+    background: rgb(249,244,232);
+background: linear-gradient(0deg, rgba(249,244,232,1) 0%, rgba(242,233,222,1) 100%);
+}
