@@ -3,6 +3,11 @@ const UserComponent = () => {
 };
 
 
+type UserAPIResponse = {
+    id: string;
+    id
+}
+
 const useUserData = (userId: string) => {
     return useQuery(["user-query"], async () => {
         return await (await fetch("/api/user/")).json();
@@ -11,5 +16,5 @@ const useUserData = (userId: string) => {
 
 export const UseComponent: React.FC<{ userId }> = ({userId}) => {
     const {data} = useUserData(userId);
-    return <div>User</div>
+    return <div>User</div>;
 }
